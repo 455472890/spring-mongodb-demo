@@ -11,4 +11,6 @@ spring与mongodb结合的一个小例子
 
 4、演示位置查询
 
-欢迎交流！！！
+项目基于JDK1.6+，maven环境，建议mongodb2.0+
+
+
