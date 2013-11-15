@@ -14,6 +14,6 @@ spring与mongodb结合的一个小例子
 项目基于JDK1.6+，maven环境，建议mongodb2.0+
 
 
-qq：251607355
+QQ：251607355       
 email：airfey@126.com
 
