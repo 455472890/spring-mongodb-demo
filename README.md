@@ -1,7 +1,7 @@
 spring-mongodb-demo
 ===================
 
-spring与mongodb结合的一个小例子
+spring与mongodb结合的一个例子
 
 1、封装主键自增逻辑
 
