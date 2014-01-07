@@ -15,7 +15,7 @@ spring与mongodb结合的一个例子
 
 
 QQ：251607355       
-email：airfey@126.com
+email：airfey#126.com (请把#换成@)
 
 详细的程序逻辑请参照wiki内文章以及后续更新
 
