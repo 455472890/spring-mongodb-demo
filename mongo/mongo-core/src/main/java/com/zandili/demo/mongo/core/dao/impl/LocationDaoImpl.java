@@ -19,7 +19,7 @@ public class LocationDaoImpl extends DaoImpl<Location> implements LocationDao {
 
 	private static final long serialVersionUID = -8617442467345557297L;
 
-	@Override
+	 
 	public List<Location> findCircleNear(Point point, double maxDistance) {
 		// this.getMongoTemplate().indexOps(Location.class)
 		// .ensureIndex(new GeospatialIndex("pos"));
@@ -28,7 +28,7 @@ public class LocationDaoImpl extends DaoImpl<Location> implements LocationDao {
 						.maxDistance(maxDistance)), Location.class);
 	}
 
-	@Override
+ 
 	public List<Location> findBoxNear(Point lowerLeft, Point upperRight) {
 		// this.getMongoTemplate().indexOps(Location.class)
 		// .ensureIndex(new GeospatialIndex("pos"));

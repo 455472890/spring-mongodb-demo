@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	 
+
 	<groupId>com.zandili.demo</groupId>
 	<artifactId>mongo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -114,7 +114,7 @@
 				<artifactId>hibernate-jpa-2.0-api</artifactId>
 				<version>1.0.0.Final</version>
 			</dependency>
- 
+
 
 			<!-- mongodb java driver -->
 			<dependency>
@@ -133,8 +133,8 @@
 				<artifactId>aspectjweaver</artifactId>
 				<version>1.7.3</version>
 			</dependency>
-			
-			
+
+
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
@@ -152,7 +152,7 @@
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>1.6.1</version>
 			</dependency>
-			
+
 			<!-- 以下配置为provided,不参与打包 -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
@@ -176,7 +176,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -188,7 +188,7 @@
 			</plugin>
 
 
-			
+
 		</plugins>
 
 

@@ -24,20 +24,20 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>log4j</groupId>

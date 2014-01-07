@@ -2,8 +2,7 @@ package com.zandili.demo.mongo.core.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Transient;
-
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

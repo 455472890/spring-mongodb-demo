@@ -28,7 +28,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.zandili.demo.mongo.common.dao.Dao;
@@ -44,8 +43,7 @@ import com.zandili.demo.mongo.common.util.ReflectUitls;
  * 
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public abstract class DaoImpl<T> implements Dao<T>,
-		Serializable {
+public abstract class DaoImpl<T> implements Dao<T>, Serializable {
 	private static final long serialVersionUID = 6975328597396206191L;
 
 	@Autowired
@@ -58,8 +56,7 @@ public abstract class DaoImpl<T> implements Dao<T>,
 
 	private Class<?> entityClass = null;
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(DaoImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(DaoImpl.class);
 
 	@SuppressWarnings("unused")
 	@PostConstruct
@@ -108,9 +105,7 @@ public abstract class DaoImpl<T> implements Dao<T>,
 			}
 			propertyField.setAccessible(true);
 			// 判断该字段是否参加入库
-			if (propertyField.getAnnotation(Transient.class) != null
-					|| propertyField
-							.getAnnotation(javax.persistence.Transient.class) != null) {
+			if (propertyField.getAnnotation(Transient.class) != null) {
 				continue;
 			}
 			// 拿到@Id注解
