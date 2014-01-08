@@ -22,11 +22,15 @@ email：airfey#126.com (请把#换成@)
 有感兴趣的童鞋欢迎一起参与完善。
 
 2014.1.8 changes
+
 新增mongo-action和mongo-war，使用struts2和httl模板引擎进行页面展示
+
 查看方式很简单：
+
 1、运行程序，访问http://localhost:8080/mongo-war/index.do(具体依你的tomcat设置为准)
-  
- 运行如下图：
+
+运行如下图：
+
 	<div class="role-tbody mark-table scrollBar" >
       <table width="800px">  <tbody>
             <tr style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(118, 138, 153);height:30px">
