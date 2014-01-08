@@ -90,7 +90,6 @@ email：airfey#126.com (请把#换成@)
             </tr>
         </tbody>
     </table>
-    </div>
-	 <span class="pre-page disabled">上一页</span> <a class="page-p on">1</a> <span class="next-page disabled">下一页</span>  <span class="ml10">&nbsp;共1页&nbsp;</span> 跳转至第<input type='text' value='1'id='jumpPageBox' size='2' style='width:24px;height:20px;' onblur='checkCurrentPage(document.getElementById("jumpPageBox").value,1)'/>页 <input class='jump' style='cursor:pointer;'  type='button'  value='&nbsp;跳转&nbsp;' onclick='document.getElementById("pages").value=document.getElementById("jumpPageBox").value;window.location.href="index.do?page="+document.getElementById("jumpPageBox").value;'/><input type='hidden' value='1' name='currentPage' id='pages' />
+    </div>	 <span class="pre-page disabled">上一页</span> <a class="page-p on">1</a> <span class="next-page disabled">下一页</span>  <span class="ml10">&nbsp;共1页&nbsp;</span> 跳转至第<input type='text' value='1'id='jumpPageBox' size='2' style='width:24px;height:20px;' onblur='checkCurrentPage(document.getElementById("jumpPageBox").value,1)'/>页 <input class='jump' style='cursor:pointer;'  type='button'  value='&nbsp;跳转&nbsp;' onclick='document.getElementById("pages").value=document.getElementById("jumpPageBox").value;window.location.href="index.do?page="+document.getElementById("jumpPageBox").value;'/><input type='hidden' value='1' name='currentPage' id='pages' />
  
  
