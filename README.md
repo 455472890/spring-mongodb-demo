@@ -25,49 +25,7 @@ email：airfey#126.com (请把#换成@)
 新增mongo-action和mongo-war，使用struts2和httl模板引擎进行页面展示
 查看方式很简单：
 1、运行程序，访问http://localhost:8080/mongo-war/index.do(具体依你的tomcat设置为准)
-
-<html>
-<head>
-<style >
- 
-html, body  {
-    margin: 20;
-    padding: 0;
-}
-
-.busi-tab-head {
-    background: none repeat scroll 0 0 #F2F5F7;
-    border: 1px solid #EAEAEA;
-    height: 24px;
-    width: 800px;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: fixed;
-    word-break: break-all;
-    border: 1px solid #EAEAEA;
-}
-
-.role-tbody {
-    position: relative;
-}
-.role-tbody, .role-tbody table {
-    background: none repeat scroll 0 0 #FFFFFF;
-    clear: both;
-    color: #768A99;
-    width: 800px;
-    
-}
-.role-tbody {
-    position: relative;
-    width: 100% !important;
-}
- 
-</style>
-</head>
-<body>
-	<p>HTTL+ mongodb+ Struts2 Demo</p>
+  
 	<table class="busi-tab-head" width="800px">
     <tbody><tr style="color:#333;height:30px">
         <td width="80px" height="28">序号</td>
@@ -141,5 +99,4 @@ table {
     </div>
 	 <span class="pre-page disabled">上一页</span> <a class="page-p on">1</a> <span class="next-page disabled">下一页</span>  <span class="ml10">&nbsp;共1页&nbsp;</span> 跳转至第<input type='text' value='1'id='jumpPageBox' size='2' style='width:24px;height:20px;' onblur='checkCurrentPage(document.getElementById("jumpPageBox").value,1)'/>页 <input class='jump' style='cursor:pointer;'  type='button'  value='&nbsp;跳转&nbsp;' onclick='document.getElementById("pages").value=document.getElementById("jumpPageBox").value;window.location.href="index.do?page="+document.getElementById("jumpPageBox").value;'/><input type='hidden' value='1' name='currentPage' id='pages' />
  
-</body>
-</html>
+ 
