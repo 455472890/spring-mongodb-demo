@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
-
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.zandili.demo.mongo.common.dao.impl.DaoImpl;
@@ -121,16 +120,18 @@ public class UserDaoImpl extends DaoImpl<User> implements UserDao {
 	@Override
 	public UserVo findUsersByPage(Integer age, int beginNum, int pageSize) {
 		Query query = new Query();
+		UserVo userVo = null;
 		if (null != age) {
 			query.addCriteria(Criteria.where("age").is(age));
 		}
 		long count = super.getMongoTemplate().count(query, User.class);
-
-		query.with(new Sort(Direction.DESC, "_id"));
-		query.skip(beginNum).limit(pageSize);
-		UserVo userVo = new UserVo();
-		userVo.setUsers(super.getMongoTemplate().find(query, User.class));
-		userVo.setCount((int) count);
+		if (count > 0) {
+			query.with(new Sort(Direction.DESC, "_id"));
+			query.skip(beginNum).limit(pageSize);
+			userVo = new UserVo();
+			userVo.setUsers(super.getMongoTemplate().find(query, User.class));
+			userVo.setCount((int) count);
+		}
 		return userVo;
 	}
 

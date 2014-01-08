@@ -5,23 +5,23 @@ import java.util.List;
 
 /**
  * 分页工具类
- *
+ * 
  * @ClassName: PageWithData
- * @author: airfey 2013-11-8 下午12:19:54 
- * @param <E>  
- * @version V1.0   
- *
+ * @author: airfey 2013-11-8 下午12:19:54
+ * @param <E>
+ * @version V1.0
+ * 
  */
 public class PageWithData<E extends Serializable> implements Serializable {
 
 	private static final long serialVersionUID = 1153863153214796311L;
-    /**
-     * 当前页数据list
-     */
+	/**
+	 * 当前页数据list
+	 */
 	private List<E> data;
-    /**
-     * 当前页码
-     */
+	/**
+	 * 当前页码
+	 */
 	private int currentPage;
 	/**
 	 * 首条记录
@@ -135,4 +135,122 @@ public class PageWithData<E extends Serializable> implements Serializable {
 		this.data = data;
 	}
 
+	/**
+	 * 前台分页导航
+	 * 
+	 * @param total
+	 *            总记录数
+	 * @param pageSize
+	 *            一页显示长度
+	 * @param currentPage
+	 *            当前页码
+	 * @param query_string
+	 *            链接字符串
+	 * @return Writer:airfey
+	 */
+	public String pageNavigation(int total, int pageSize, int currentPage,
+			String query_string) {
+
+		boolean flag = false;
+		if (query_string.indexOf("%s") > -1) {
+			flag = true;
+		}
+
+		int allpage = 0; // 总页数
+		int next = 0; // 下一页
+		int pre = 0; // 上一页
+		int startcount = 0; // 开始数
+		int endcount = 0; // 结束数
+
+		if (currentPage < 1) {
+			currentPage = 1;
+		}
+		if (pageSize != 0) {
+			allpage = (total / pageSize);
+			allpage = ((total % pageSize) != 0 ? allpage + 1 : allpage);
+			allpage = (allpage == 0 ? 1 : allpage);
+		}
+		next = currentPage + 1;
+		pre = currentPage - 1;
+
+		startcount = currentPage - 2;
+		endcount = currentPage + 2;
+		// 校正，如果页数小于5则显示全部、大于5最多显示5条
+		if (startcount < 1) {
+			startcount = 1;
+			if (allpage >= 5) {
+				endcount = 5;
+			} else {
+				endcount = allpage;
+			}
+		}
+		// 如果当前页为最后一页，总页数大于5则起始页为总页数-4，否则起始页为第一页
+		if (allpage < endcount) {
+			endcount = allpage;
+			if (allpage >= 5) {
+				startcount = allpage - 4;
+			} else {
+				startcount = 1;
+			}
+		}
+		// 判断是否大于最后一页
+		if (currentPage > allpage) {
+			currentPage = allpage;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		if (currentPage > 1) {
+			sb.append("<a href=\"")
+					.append(getQueryUrl(query_string, "" + pre, flag))
+					.append("\" class=\"pre-page\" >上一页</a> ");
+		} else {
+			sb.append(" <span class=\"pre-page disabled\">上一页</span> ");
+		}
+		// 中间页处理，这个增加时间复杂度，减小空间复杂度
+		for (int i = startcount; i <= endcount; i++) {
+			if (currentPage == i) {
+				sb.append("<a class=\"page-p on\">").append(i).append("</a> ");
+			} else {
+				sb.append(" <a class=\"page-p\" href=\"")
+						.append(getQueryUrl(query_string, "" + i, flag))
+						.append("\">").append(i).append("</a> ");
+			}
+		}
+		if (currentPage != allpage) {
+			sb.append(" <a  href=\"")
+					.append(getQueryUrl(query_string, "" + next, flag))
+					.append("\" class=\"next-page\">下一页</a> ");
+		} else {
+			sb.append("<span class=\"next-page disabled\">下一页</span> ");
+		}
+		sb.append(" <span class=\"ml10\">&nbsp;共").append(allpage)
+				.append("页&nbsp;</span>");
+
+		// 跳转到第几页
+		sb.append(" 跳转至第<input type='text' value='")
+				.append(currentPage)
+				.append("'id='jumpPageBox' size='2' style='width:24px;height:20px;' onblur='checkCurrentPage(document.getElementById(\"jumpPageBox\").value,")
+				.append(allpage)
+				.append(")'/>页 <input class='jump' style='cursor:pointer;'  type='button'  value='&nbsp;跳转&nbsp;' onclick='document.getElementById(\"pages\").value=document.getElementById(\"jumpPageBox\").value;window.location.href=\"")
+				.append(getQueryUrl(query_string,
+						"\"+document.getElementById(\"jumpPageBox\").value",
+						flag)).append(";'/>");
+
+		sb.append("<input type='hidden' value='" + currentPage
+				+ "' name='currentPage' id='pages' />");
+
+		return sb.toString();
+	}
+
+	private String getQueryUrl(String query, String pageNo, boolean flag) {
+		String valueString = "";
+		if (flag) {
+			valueString = String.format(query, pageNo);
+		} else {
+			valueString = query + pageNo;
+		}
+
+		return valueString;
+
+	}
 }

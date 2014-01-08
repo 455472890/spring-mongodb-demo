@@ -15,10 +15,8 @@ import com.zandili.demo.mongo.core.domain.User;
 import com.zandili.demo.mongo.core.service.UserService;
 import com.zandili.demo.mongo.core.vo.UserVo;
 
-
 @Service
-public class UserServiceImpl extends ServiceImpl<User> implements
-		UserService {
+public class UserServiceImpl extends ServiceImpl<User> implements UserService {
 	@Autowired
 	private UserDao userDao;
 
@@ -33,13 +31,17 @@ public class UserServiceImpl extends ServiceImpl<User> implements
 			// begin = (currentPage - 1) * pageSize;// 计算起始记录
 			pwd = new PageWithData<User>(currentPage, pageSize);
 			int beginNum = pwd.getFirstResult();// (currentPage - 1) * pageSize;
-												// 计算起始记录
-			UserVo userVo = userDao.findUsersByPage(age, beginNum, pageSize);
-			List<User> users = userVo.getUsers();
-			pwd.setData(users);
 
-			int count = userVo.getCount();
-			pwd.setTotalResults(count);
+			// 计算起始记录
+			UserVo userVo = userDao.findUsersByPage(age, beginNum, pageSize);
+			if (null != userVo) {
+				int count = userVo.getCount();
+				pwd.setTotalResults(count);
+
+				List<User> users = userVo.getUsers();
+				pwd.setData(users);
+			}
+
 		} catch (Exception e) {
 			throw new ApplicationException(e);
 		}
