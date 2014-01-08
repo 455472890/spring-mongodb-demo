@@ -30,8 +30,7 @@ email：airfey#126.com (请把#换成@)
 1、运行程序，访问http://localhost:8080/mongo-war/index.do(具体依你的tomcat设置为准)
 
 运行如下图：
-
-	<div class="role-tbody mark-table scrollBar" >
+<div class="role-tbody mark-table scrollBar" >
       <table width="800px">  <tbody>
             <tr style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(118, 138, 153);height:30px">
                 <td width="80px"><span class="mr5">1</td>
