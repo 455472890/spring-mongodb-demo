@@ -26,16 +26,7 @@ email：airfey#126.com (请把#换成@)
 查看方式很简单：
 1、运行程序，访问http://localhost:8080/mongo-war/index.do(具体依你的tomcat设置为准)
   
-	<table class="busi-tab-head" width="800px">
-    <tbody><tr style="color:#333;height:30px">
-        <td width="80px" height="28">序号</td>
-        <td width="80px">name</td>
-        <td width="130px">email</td>
-        <td width="120px">genda</td>
-        <td >department</td>
-    </tr>
-</tbody> 
-</table> 
+ 运行如下图：
 	<div class="role-tbody mark-table scrollBar" >
       <table width="800px">  <tbody>
             <tr style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(118, 138, 153);height:30px">
